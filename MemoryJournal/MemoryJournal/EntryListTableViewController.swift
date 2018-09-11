@@ -94,9 +94,13 @@ extension EntryListTableViewController {
         switch segue.identifier {
         case Identity.entryDetailsSegue.rawValue:
             print("Entered if segue: entryDetails")
-                        guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { print("No object")
-                            return }
-                        entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+            guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else {
+                print("No object")
+                return
+            }
+            entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+        case Identity.addEntrySegue.rawValue:
+            print("AddEntry segue")
         default:
             print("Something's wrong")
         }
