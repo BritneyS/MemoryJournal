@@ -119,13 +119,32 @@ extension EntryListTableViewController: AddEntryTableViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func addEntryTableViewController(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry) {
+    func addEntryTableViewControllerAdd(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry) {
         
         let newRowIndex = entryList.count
         entryList.append(item)
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+}
+
+// MARK: EntryDetailsViewControllerDelegate Protocol Implementation
+
+extension EntryListTableViewController: EntryDetailsViewControllerDelegate {
+    func entryDetailsViewControllerDidCancel(_ controller: EntryDetailsViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func entryDetailsViewControllerEdit(_ controller: EntryDetailsViewController, didFinishEdit item: JournalEntry) {
+        guard let index = entryList.index(of: item) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.textLabel?.text = item.titleAndDate
         navigationController?.popViewController(animated: true)
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddEntryTableViewControllerDelegate: class {
     func addEntryTableViewControllerDidCancel(_ controller: AddEntryTableViewController)
-    func addEntryTableViewController(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry)
+    func addEntryTableViewControllerAdd(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry)
 }
 
 class AddEntryTableViewController: UITableViewController {
@@ -52,7 +52,7 @@ class AddEntryTableViewController: UITableViewController {
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         let entry = JournalEntry(title: titleTextField.text!, content: contentTextView.text!, date: dateTextField.text!)
-        delegate?.addEntryTableViewController(self, didFinishAdding: entry)
+        delegate?.addEntryTableViewControllerAdd(self, didFinishAdding: entry)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

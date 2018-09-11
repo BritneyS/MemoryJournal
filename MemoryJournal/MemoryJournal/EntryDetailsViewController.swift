@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol EntryDetailsViewControllerDelegate: class {
+    func entryDetailsViewControllerDidCancel(_ controller: EntryDetailsViewController)
+    func entryDetailsViewControllerEdit(_ controller: EntryDetailsViewController, didFinishEdit item: JournalEntry)
+}
+
 class EntryDetailsViewController: UIViewController {
     
     // MARK: Outlets
@@ -17,6 +22,7 @@ class EntryDetailsViewController: UIViewController {
     
     // MARK: Properties
     var entryData: JournalEntry?
+    weak var delegate: EntryDetailsViewControllerDelegate?
     
     // MARK: Methods
     override func viewDidLoad() {
