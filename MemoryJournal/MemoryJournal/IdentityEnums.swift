@@ -9,5 +9,9 @@
 import Foundation
 
 enum Identity: String {
+    // cells
     case journalEntry
+    // segues
+    case entryDetailsSegue
+    case addEntrySegue
 }

@@ -13,6 +13,7 @@ class EntryListTableViewController: UITableViewController {
     // MARK: Properties
     
     var entryList: [JournalEntry] = []
+    var selectedEntryIndex = 0
     
     // MARK: Methods
     
@@ -72,5 +73,15 @@ extension EntryListTableViewController {
         if editingStyle == UITableViewCellEditingStyle.delete {
             swipeToDelete(indexPath: indexPath)
         }
+    }
+}
+
+// MARK: UITableViewDelegate Protocol
+
+extension EntryListTableViewController {
+    //don't use didselect: will be one record behind
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedEntryIndex = indexPath.row
+        return indexPath
     }
 }
