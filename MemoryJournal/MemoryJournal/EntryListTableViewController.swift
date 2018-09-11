@@ -37,13 +37,9 @@ extension EntryListTableViewController {
         let journalEntries = Entries()
         
         for entry in journalEntries.entries {
-            let newEntry = JournalEntry(title: entry.title, content: entry.title, date: entry.date)
+            let newEntry = JournalEntry(title: entry.title, content: entry.content, date: entry.date)
             entryList.append(newEntry)
-            print("\(newEntry.title), \(newEntry.content), \(newEntry.date)")
-           
         }
-        
-         print("EntryList at popEntryList: \(entryList)")
     }
     
     private func swipeToDelete(indexPath: IndexPath) {
@@ -95,16 +91,14 @@ extension EntryListTableViewController {
 extension EntryListTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Segue triggered")
-        print("Entry: \(self.entryList[selectedEntryIndex].title)")
-        if segue.identifier == Identity.entryDetailsSegue.rawValue {
-            print("Entered if segue")
-            guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { print("No object")
-                return }
-            print("EntryList: \(entryList)")
-            entryDetailsViewController.entryData = entryList[selectedEntryIndex]
-            print("Entry data: \(entryDetailsViewController.entryData)")
-            print("Entry: \(entryList[selectedEntryIndex])")
+        switch segue.identifier {
+        case Identity.entryDetailsSegue.rawValue:
+            print("Entered if segue: entryDetails")
+                        guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { print("No object")
+                            return }
+                        entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+        default:
+            print("Something's wrong")
         }
     }
 }

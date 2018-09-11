@@ -16,6 +16,7 @@
 		06D7DEAF21473B9700758286 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */; };
 		06D7DEB12147409400758286 /* IdentityEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEB02147409400758286 /* IdentityEnums.swift */; };
 		06D7DEB32147443A00758286 /* EntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */; };
+		06D7DEB52147FFDF00758286 /* AddEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEB42147FFDF00758286 /* AddEntryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 		06D7DEB02147409400758286 /* IdentityEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityEnums.swift; sourceTree = "<group>"; };
 		06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
+		06D7DEB42147FFDF00758286 /* AddEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				06D7DE962146FDFD00758286 /* AppDelegate.swift */,
 				06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */,
 				06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */,
+				06D7DEB42147FFDF00758286 /* AddEntryTableViewController.swift */,
 				06D7DE9A2146FDFD00758286 /* Main.storyboard */,
 				06D7DE9D2146FDFF00758286 /* Assets.xcassets */,
 				06D7DE9F2146FDFF00758286 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				06D7DEB12147409400758286 /* IdentityEnums.swift in Sources */,
 				06D7DEA92146FEDE00758286 /* JournalEntry.swift in Sources */,
+				06D7DEB52147FFDF00758286 /* AddEntryTableViewController.swift in Sources */,
 				06D7DEAB2147322700758286 /* Entries.swift in Sources */,
 				06D7DEAF21473B9700758286 /* EntryListTableViewController.swift in Sources */,
 				06D7DEB32147443A00758286 /* EntryDetailsViewController.swift in Sources */,

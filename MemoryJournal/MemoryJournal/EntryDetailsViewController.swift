@@ -21,7 +21,6 @@ class EntryDetailsViewController: UIViewController {
     // MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Entry data on viewDidLoad: \(self.entryData?.title) \(self.entryData?.date) \(self.entryData?.content)")
         resetView()
 
         // Do any additional setup after loading the view.
@@ -35,10 +34,10 @@ class EntryDetailsViewController: UIViewController {
     // MARK: Private Implementation
     
     func resetView() {
-        guard let entryData = self.entryData else { print ("No data")
-            print("Entry data on resetView: \(self.entryData?.title) \(self.entryData?.date) \(self.entryData?.content)")
-            return }
-        print("Entry data on resetView: \(entryData.title) \(entryData.date) \(entryData.content)")
+        guard let entryData = self.entryData else {
+            print ("No data")
+            return
+        }
         populateData(data: entryData)
     }
     
@@ -46,7 +45,6 @@ class EntryDetailsViewController: UIViewController {
         journalTitleLabel.text = entryData?.title
         dateLabel.text = data.date
         contentLabel.text = data.content
-        print("Entry data on populateData: \(entryData?.title) \(data.date) \(data.content)")
     }
 
     /*
