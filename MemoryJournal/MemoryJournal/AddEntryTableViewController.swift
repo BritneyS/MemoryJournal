@@ -55,6 +55,9 @@ class AddEntryTableViewController: UITableViewController {
         delegate?.addEntryTableViewController(self, didFinishAdding: entry)
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        delegate?.addEntryTableViewControllerDidCancel(self)
+    }
     
 
 

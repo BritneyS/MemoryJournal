@@ -120,6 +120,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Entry" id="o0A-M5-Y3W">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dGZ-Py-tON">
+                            <connections>
+                                <action selector="cancel:" destination="ouD-Hv-lGf" id="HtG-3W-BNZ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="gnS-oT-udX">
                             <connections>
                                 <action selector="save:" destination="ouD-Hv-lGf" id="KNB-6u-nUj"/>
