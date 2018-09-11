@@ -62,7 +62,7 @@ extension EntryListTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "journalEntry", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identity.journalEntry.rawValue, for: indexPath)
         cell.textLabel?.text = entryList[indexPath.row].titleAndDate
         
         return cell
