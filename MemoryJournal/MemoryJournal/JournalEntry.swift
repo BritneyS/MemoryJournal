@@ -19,4 +19,8 @@ class JournalEntry: NSObject {
         self.date = date
     }
     
+    var titleAndDate: String {
+        return "\(title) - \(date)"
+    }
+    
 }
