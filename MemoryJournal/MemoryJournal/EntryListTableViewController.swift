@@ -99,6 +99,7 @@ extension EntryListTableViewController {
                 return
             }
             entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+            entryDetailsViewController.delegate = self
         case Identity.addEntrySegue.rawValue:
             print("addEntry segue")
             guard let addEntryTableViewController = segue.destination as? AddEntryTableViewController else {

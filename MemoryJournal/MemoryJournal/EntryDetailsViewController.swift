@@ -20,6 +20,13 @@ class EntryDetailsViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
+    
+    @IBOutlet weak var editButton: UIButton!
+    
+    
     // MARK: Properties
     var entryData: JournalEntry?
     weak var delegate: EntryDetailsViewControllerDelegate?
@@ -45,6 +52,7 @@ class EntryDetailsViewController: UIViewController {
             return
         }
         populateData(data: entryData)
+        toggleTextFields()
     }
     
     func populateData(data: JournalEntry) {
@@ -52,15 +60,49 @@ class EntryDetailsViewController: UIViewController {
         dateLabel.text = data.date
         contentLabel.text = data.content
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func toggleTitleText() {
+        if navigationItem.title == "Entry Details" {
+            navigationItem.title = "Edit Entry"
+        } else {
+            navigationItem.title = "Entry Details"
+        }
     }
-    */
 
+    func toggleTextFields() {
+        titleTextField.isHidden = !titleTextField.isHidden
+        dateTextField.isHidden = !dateTextField.isHidden
+        contentTextView.isHidden = !contentTextView.isHidden
+    }
+    
+    func toggleButtonTitle () {
+        if editButton.currentTitle == TitleText.editEntry.rawValue {
+            editButton.setTitle(TitleText.cancelEdit.rawValue, for: .normal)
+        } else {
+            editButton.setTitle(TitleText.editEntry.rawValue, for: .normal)
+        }
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func edit(_ sender: UIButton) {
+        toggleTitleText()
+        toggleTextFields()
+        toggleButtonTitle()
+    }
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        guard let entry = entryData else { return }
+        guard let updatedTitle = titleTextField.text else { return }
+        guard let updatedDate = dateTextField.text else { return }
+        guard let updatedContent = contentTextView.text else { return }
+        
+        entry.title = updatedTitle
+        entry.date = updatedDate
+        entry.content = updatedContent
+        
+        delegate?.entryDetailsViewControllerEdit(self, didFinishEdit: entry)
+    }
+    
+    
 }

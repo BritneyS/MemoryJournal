@@ -141,7 +141,7 @@
             </objects>
             <point key="canvasLocation" x="1968.8" y="311.69415292353824"/>
         </scene>
-        <!--Entry Details View Controller-->
+        <!--Entry Details-->
         <scene sceneID="vwN-Ia-ArC">
             <objects>
                 <viewController id="ve4-KG-F9Z" customClass="EntryDetailsViewController" customModule="MemoryJournal" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,14 +170,57 @@
                                 <color key="textColor" red="0.92122660789999999" green="0.049038595400000003" blue="0.99999898669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1k-5d-FEx">
+                                <rect key="frame" x="16" y="617" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.050894779430000002" blue="0.47870025989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Edit Entry">
+                                    <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="ve4-KG-F9Z" eventType="touchUpInside" id="d3X-cC-07Z"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiB-XN-h3e">
+                                <rect key="frame" x="16" y="131" width="323" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qew-M9-Nsb">
+                                <rect key="frame" x="16" y="219" width="323" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Content..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MnS-Qv-9Iw">
+                                <rect key="frame" x="16" y="285" width="343" height="311"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wH3-wq-MHy"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Entry Details" id="MjF-id-rfz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="8Ua-uV-CoI">
+                            <connections>
+                                <action selector="save:" destination="ve4-KG-F9Z" id="r11-5j-zlp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentLabel" destination="6IM-qf-cjR" id="paZ-WS-YJL"/>
+                        <outlet property="contentTextView" destination="MnS-Qv-9Iw" id="y3K-Jc-dlF"/>
                         <outlet property="dateLabel" destination="QP9-WW-iik" id="jdq-ZP-ZVT"/>
+                        <outlet property="dateTextField" destination="qew-M9-Nsb" id="GDf-aR-ls9"/>
+                        <outlet property="editButton" destination="X1k-5d-FEx" id="KHp-HL-eVI"/>
                         <outlet property="journalTitleLabel" destination="Pze-Iy-5A1" id="iz6-tK-g0m"/>
+                        <outlet property="titleTextField" destination="DiB-XN-h3e" id="FDV-YU-PEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1H-Tj-u2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
