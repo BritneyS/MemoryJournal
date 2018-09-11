@@ -95,19 +95,16 @@ extension EntryListTableViewController {
 extension EntryListTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Entry: \(self.entryList[selectedEntryIndex])")
         print("Segue triggered")
+        print("Entry: \(self.entryList[selectedEntryIndex].title)")
         if segue.identifier == Identity.entryDetailsSegue.rawValue {
+            print("Entered if segue")
             guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { print("No object")
                 return }
             print("EntryList: \(entryList)")
             entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+            print("Entry data: \(entryDetailsViewController.entryData)")
             print("Entry: \(entryList[selectedEntryIndex])")
-//            entryDetailsViewController.delegate = self
-//        } else if segue.identifier == SegueIdentifier.addContactSegueIdentifier.rawValue {
-//            guard let addContactViewController = segue.destination as? AddContactViewController else { return }
-//            addContactViewController.delegate = self  // self is ContactListViewController here, assigning this class as delegate
-//        }
         }
     }
 }

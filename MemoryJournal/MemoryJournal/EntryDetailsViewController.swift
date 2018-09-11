@@ -46,7 +46,7 @@ class EntryDetailsViewController: UIViewController {
         journalTitleLabel.text = entryData?.title
         dateLabel.text = data.date
         contentLabel.text = data.content
-        print("Entry data on populateData: \(data.title) \(data.date) \(data.content)")
+        print("Entry data on populateData: \(entryData?.title) \(data.date) \(data.content)")
     }
 
     /*
