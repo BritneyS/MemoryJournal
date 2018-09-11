@@ -40,7 +40,10 @@ extension EntryListTableViewController {
             let newEntry = JournalEntry(title: entry.title, content: entry.title, date: entry.date)
             entryList.append(newEntry)
             print("\(newEntry.title), \(newEntry.content), \(newEntry.date)")
+           
         }
+        
+         print("EntryList at popEntryList: \(entryList)")
     }
     
     private func swipeToDelete(indexPath: IndexPath) {
@@ -81,7 +84,8 @@ extension EntryListTableViewController {
 extension EntryListTableViewController {
     //don't use didselect: will be one record behind
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedEntryIndex = indexPath.row
+        self.selectedEntryIndex = indexPath.row
+        print("Index: \(self.selectedEntryIndex)")
         return indexPath
     }
 }
@@ -91,11 +95,14 @@ extension EntryListTableViewController {
 extension EntryListTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Segue trigged")
+        print("Entry: \(self.entryList[selectedEntryIndex])")
+        print("Segue triggered")
         if segue.identifier == Identity.entryDetailsSegue.rawValue {
-            guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { return }
-            print(selectedEntryIndex)
+            guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { print("No object")
+                return }
+            print("EntryList: \(entryList)")
             entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+            print("Entry: \(entryList[selectedEntryIndex])")
 //            entryDetailsViewController.delegate = self
 //        } else if segue.identifier == SegueIdentifier.addContactSegueIdentifier.rawValue {
 //            guard let addContactViewController = segue.destination as? AddContactViewController else { return }
