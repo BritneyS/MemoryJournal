@@ -85,3 +85,23 @@ extension EntryListTableViewController {
         return indexPath
     }
 }
+
+// MARK: Segue
+
+extension EntryListTableViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Segue trigged")
+        if segue.identifier == Identity.entryDetailsSegue.rawValue {
+            guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else { return }
+            print(selectedEntryIndex)
+            entryDetailsViewController.entryData = entryList[selectedEntryIndex]
+//            entryDetailsViewController.delegate = self
+//        } else if segue.identifier == SegueIdentifier.addContactSegueIdentifier.rawValue {
+//            guard let addContactViewController = segue.destination as? AddContactViewController else { return }
+//            addContactViewController.delegate = self  // self is ContactListViewController here, assigning this class as delegate
+//        }
+        }
+    }
+}
+

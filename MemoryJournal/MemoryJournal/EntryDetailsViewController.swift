@@ -9,9 +9,19 @@
 import UIKit
 
 class EntryDetailsViewController: UIViewController {
-
+    
+    // MARK: Outlets
+    @IBOutlet weak var journalTitleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    // MARK: Properties
+    var entryData: JournalEntry?
+    
+    // MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetView()
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +31,19 @@ class EntryDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Private Implementation
+    
+    func resetView() {
+        guard let entryData = entryData else { return }
+        populateData(data: entryData)
+    }
+    
+    func populateData(data: JournalEntry) {
+        journalTitleLabel.text = data.title
+        dateLabel.text = data.date
+        contentLabel.text = data.content
+        print("Entry data: \(data.title) \(data.date) \(data.content)")
+    }
 
     /*
     // MARK: - Navigation
