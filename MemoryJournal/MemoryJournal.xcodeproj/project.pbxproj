@@ -15,6 +15,7 @@
 		06D7DEAB2147322700758286 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEAA2147322700758286 /* Entries.swift */; };
 		06D7DEAF21473B9700758286 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */; };
 		06D7DEB12147409400758286 /* IdentityEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEB02147409400758286 /* IdentityEnums.swift */; };
+		06D7DEB32147443A00758286 /* EntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		06D7DEAA2147322700758286 /* Entries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
 		06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 		06D7DEB02147409400758286 /* IdentityEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityEnums.swift; sourceTree = "<group>"; };
+		06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				06D7DE962146FDFD00758286 /* AppDelegate.swift */,
 				06D7DEAE21473B9700758286 /* EntryListTableViewController.swift */,
+				06D7DEB22147443A00758286 /* EntryDetailsViewController.swift */,
 				06D7DE9A2146FDFD00758286 /* Main.storyboard */,
 				06D7DE9D2146FDFF00758286 /* Assets.xcassets */,
 				06D7DE9F2146FDFF00758286 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				06D7DEA92146FEDE00758286 /* JournalEntry.swift in Sources */,
 				06D7DEAB2147322700758286 /* Entries.swift in Sources */,
 				06D7DEAF21473B9700758286 /* EntryListTableViewController.swift in Sources */,
+				06D7DEB32147443A00758286 /* EntryDetailsViewController.swift in Sources */,
 				06D7DE972146FDFD00758286 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
