@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AddEntryTableViewControllerDelegate: class {
+    func addEntryTableViewControllerDidCancel(_ controller: AddEntryTableViewController)
+    func addEntryTableViewController(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry)
+}
+
 class AddEntryTableViewController: UITableViewController {
     
     // MARK: Outlets
@@ -16,6 +21,9 @@ class AddEntryTableViewController: UITableViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
+    // MARK: Properties
+    
+    weak var delegate: AddEntryTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +51,8 @@ class AddEntryTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        
-        
+        let entry = JournalEntry(title: titleTextField.text!, content: contentTextView.text!, date: dateTextField.text!)
+        delegate?.addEntryTableViewController(self, didFinishAdding: entry)
     }
     
     

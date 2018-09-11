@@ -93,17 +93,43 @@ extension EntryListTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Identity.entryDetailsSegue.rawValue:
-            print("Entered if segue: entryDetails")
+            print("entryDetails segue")
             guard let entryDetailsViewController = segue.destination as? EntryDetailsViewController else {
                 print("No object")
                 return
             }
             entryDetailsViewController.entryData = entryList[selectedEntryIndex]
         case Identity.addEntrySegue.rawValue:
-            print("AddEntry segue")
+            print("addEntry segue")
+            guard let addEntryTableViewController = segue.destination as? AddEntryTableViewController else {
+                print("No object")
+                return
+            }
+            addEntryTableViewController.delegate = self
         default:
             print("Something's wrong")
         }
     }
 }
+
+// MARK: AddEntryTableViewControllerDelegate Protocol Implementation
+
+extension EntryListTableViewController: AddEntryTableViewControllerDelegate {
+    func addEntryTableViewControllerDidCancel(_ controller: AddEntryTableViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addEntryTableViewController(_ controller: AddEntryTableViewController, didFinishAdding item: JournalEntry) {
+        
+        let newRowIndex = entryList.count
+        entryList.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+}
+
 
